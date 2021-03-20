@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:27:04 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/19 10:59:20 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/20 12:49:22 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,69 @@
 /*
 *	swap top 2 elements
 */
-void	s(int *arr, int len)
+void	s(t_stack *stack)
 {
-	int	temp;
+	t_comp	*one;
+	t_comp	*two;
 
-	if (len < 2)
+	if (stack->size == 0 || stack->size == 1)
 		return ;
-	temp = arr[len - 1];
-	arr[len - 1] = arr[len - 2];
-	arr[len - 2] = temp;
+	one = pop(stack);
+	two = pop(stack);
+	push(stack, one->value);
+	push(stack, two->value);
+	free(one);
+	free(two);
 }
 /*
 *	a => b or b => a of top element
 */
-void	p(int *give, int *get, int *give_len_addr, int *get_len_addr)
+void	p(t_stack *give, t_stack *get)
 {
-	int	give_len;
-	int get_len;
+	t_comp	*comp;
 
-	give_len = *give_len_addr;
-	get_len = *get_len_addr;
-	if (give_len == 0)
+	if (give->size == 0)
 		return ;
-	get[get_len] = give[give_len - 1];
-	*get_len_addr = get_len + 1;
-	*give_len_addr = give_len - 1;
+	comp = pop(give);
+	push(get, comp->value);
+	free(comp);
 }
 /*
 *	rotate top to botton
 */
-void	r(int *arr,  int len)
+void	r(t_stack *stack)
 {
-	int temp;
-	int	i;
+	t_comp	*top;
+	t_comp	*list;
 
-	if (len < 1)
+	if (stack->size == 0 || stack->size == 1)
 		return ;
-	i = len;
-	temp = arr[len - 1];
-	while (--i > 0)
-		arr[i] = arr[i - 1];
-	arr[i] = temp;
+	top = pop(stack);
+	top->next = NULL;
+	list = stack->comp;
+	while (list->next)
+		list = list->next;
+	list->next = top;
+	top->before = list;
+	stack->size++;
 }
 /*
 *	rotate bottom to top
 */
-void	rr(int *arr, int len)
+void	rr(t_stack *stack)
 {
-	int temp;
-	int	i;
+	t_comp	*bottom;
+	t_comp	*list;
 
-	if (len < 1)
+	if (stack->size == 0 || stack->size == 1)
 		return ;
-	i = -1;
-	temp = arr[0];
-	while (++i < len - 1)
-		arr[i] = arr[i + 1];
-	arr[i] = temp;
+	bottom = stack->comp;
+	while (bottom->next)
+		bottom = bottom->next;
+	bottom->before->next = NULL;
+	stack->size--;
+	push(stack, bottom->value);
+	free(bottom);
 }
 
 

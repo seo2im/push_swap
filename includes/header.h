@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:40:52 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:01:00 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/20 12:49:55 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HEADER_H
 # include "lib.h"
 # include "stack.h"
+# include "exec.h"
 # include <stdio.h>
 
 # define SA 0
@@ -61,4 +62,3 @@ int				run(t_manager *manager);
 */
 
 #endif
-

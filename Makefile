@@ -1,6 +1,7 @@
 NAME = test
 SRC = ./main.c \
 		./public/stack/stack.c \
+		./public/exec/exec.c \
 		./lib/*.c
 HEADER = -I ./includes/
 CC = gcc
