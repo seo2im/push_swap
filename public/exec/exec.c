@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:27:04 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:49:22 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/20 13:04:23 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 */
 void	s(t_stack *stack)
 {
-	t_comp	*one;
-	t_comp	*two;
+	t_node	*one;
+	t_node	*two;
 
 	if (stack->size == 0 || stack->size == 1)
 		return ;
@@ -33,27 +33,27 @@ void	s(t_stack *stack)
 */
 void	p(t_stack *give, t_stack *get)
 {
-	t_comp	*comp;
+	t_node	*node;
 
 	if (give->size == 0)
 		return ;
-	comp = pop(give);
-	push(get, comp->value);
-	free(comp);
+	node = pop(give);
+	push(get, node->value);
+	free(node);
 }
 /*
 *	rotate top to botton
 */
 void	r(t_stack *stack)
 {
-	t_comp	*top;
-	t_comp	*list;
+	t_node	*top;
+	t_node	*list;
 
 	if (stack->size == 0 || stack->size == 1)
 		return ;
 	top = pop(stack);
 	top->next = NULL;
-	list = stack->comp;
+	list = stack->node;
 	while (list->next)
 		list = list->next;
 	list->next = top;
@@ -65,12 +65,12 @@ void	r(t_stack *stack)
 */
 void	rr(t_stack *stack)
 {
-	t_comp	*bottom;
-	t_comp	*list;
+	t_node	*bottom;
+	t_node	*list;
 
 	if (stack->size == 0 || stack->size == 1)
 		return ;
-	bottom = stack->comp;
+	bottom = stack->node;
 	while (bottom->next)
 		bottom = bottom->next;
 	bottom->before->next = NULL;

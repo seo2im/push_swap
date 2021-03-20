@@ -32,12 +32,43 @@ Game에 2개의 `stack`(`a`, `b`)이 존재하고 시작할 때, `a`에 정렬�
 
 ## 프로그램 구축
 ### Basic
-프로그램은 기본적으로 2개의 `stack`을 가져야 하고 11개의 명령어를 실행해야한다. 따라서 해당 프로그램을 관리할 매니저를 구현한다.
-`c`에는 `stack`이 구현되어 있지않기에 배열을 2개 만들어 두고 각각의 길이를 저장하는 구조체를 구현해둔다.
-```c
+2개의 `stack`을 가져야 하니 `stack`구조를 구현해 두어야 한다. 2중 연결리스트로 구조화하고 stack이 가져야 할 함수들을 구현한다.
+`stack`의 구조는 아래와 같이 요소와 길이를 담고있는 구조내부에 node를 가지고 있는 형태이다.
+```cpp
+struct Node {
+    int value;
+    Node *before;
+    Node *next
+}
 
+struct stack {
+    int size;
+    Node *node
+}
 ```
 
-위 구조에대해 11개의 명령어를 각각 구현해둔다.
+각각의 구현된 함수는 stack이 기본적으로 가져야할 함수들을 구현한다. 
+ - `empty`: stack이 비었는지 확인한다.
+ - `top`: stack의 최상단 node의 값을 반환한다.
+ - `push`: stack의 최상단에 요소를 추가한다.
+ - `pop`: stack의 최상단 Node를 제거하고 반환한다.
+ - `size`: stack의 길이를 반환한다.
 
-[]()
+위 명령어를 통해 각각의 `exec`들을 구현한다.
+**sa / sb**
+```cpp
+node one = stack.pop()
+node two = stack.pop()
+
+stack.push(one)
+stack.push(two)
+```
+
+**pa / pb**
+```cpp
+node n = give_stack.pop()
+get_stack.push(n);
+```
+
+<span style="color:red">**ra / rb / rra / rrb**</span>
+위 두 규격은 속도상 pop / push를 이용하는 것 보다 rotate함수를 따로 구현해 두는것이 속도향상에 큰 도움이 된다. 따라서 현 구현은 push / pop을 이용하지 않고 연결 리스트의 회전을 구현해두었다. 따라서 차후 변경을 예정하고 있다.

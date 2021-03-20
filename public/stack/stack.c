@@ -6,22 +6,22 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:53 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:57:08 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/20 13:04:33 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_comp				*init_comp(int value)
+t_node				*init_node(int value)
 {
-	t_comp	*comp;
+	t_node	*node;
 	
-	if (!(comp = malloc(sizeof(t_comp))))
+	if (!(node = malloc(sizeof(t_node))))
 		return (NULL);
-	comp->value = value;
-	comp->before = NULL;
-	comp->next = NULL;
-	return (comp);
+	node->value = value;
+	node->before = NULL;
+	node->next = NULL;
+	return (node);
 }
 
 int					empty(t_stack *stack)
@@ -29,39 +29,39 @@ int					empty(t_stack *stack)
 	return (stack->size == 0);
 }
 
-t_comp				*pop(t_stack *stack)
+t_node				*pop(t_stack *stack)
 {
-	t_comp	*comp;
+	t_node	*node;
 	int		value;
 
 	if (stack->size == 0)
 		return (NULL); //TODO : Error coding update...
-	comp = stack->comp;
-	stack->comp = comp->next;
-	if (stack->comp)
-		stack->comp->before = NULL;
+	node = stack->node;
+	stack->node = node->next;
+	if (stack->node)
+		stack->node->before = NULL;
 	stack->size--;
-	return (comp);
+	return (node);
 }
 
 int					top(t_stack *stack)
 {
-	return (stack->comp->value);
+	return (stack->node->value);
 }
 
 int					push(t_stack *stack, int value)
 {
-	t_comp	*new;
+	t_node	*new;
 
-	if (!(new = init_comp(value)))
+	if (!(new = init_node(value)))
 		return (FAIL); //TODO : Error coding update...
 	if (stack->size == 0)
-		stack->comp = new;
+		stack->node = new;
 	else
 	{
-		new->next = stack->comp;
-		stack->comp->before = new;
-		stack->comp = new;
+		new->next = stack->node;
+		stack->node->before = new;
+		stack->node = new;
 	}
 	stack->size++;
 	return (SUCCESS);
@@ -74,15 +74,15 @@ int					size(t_stack *stack)
 
 void				print_stack(t_stack *stack)
 {
-	t_comp	*comp;
+	t_node	*node;
 	int		i;
 
-	comp = stack->comp;
+	node = stack->node;
 	i = stack->size;
 	while (--i >= 0)
 	{
-		printf("%d\n", comp->value);
-		comp = comp->next;
+		printf("%d\n", node->value);
+		node = node->next;
 	}
 }
 
@@ -92,7 +92,7 @@ t_stack				*init_stack(char *argv[])
 
 	if (!(stack = malloc(sizeof(t_stack))))
 		return (NULL);
-	stack->comp = NULL;
+	stack->node = NULL;
 	stack->size = 0;
 	if (!argv)
 		return (stack);
@@ -106,7 +106,7 @@ t_stack				*init_stack(char *argv[])
 
 void				free_stack(t_stack *stack)
 {
-	t_comp *temp;
+	t_node *temp;
 
 	while (stack->size > 0)
 		free(pop(stack));

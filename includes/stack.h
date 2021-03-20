@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:34:17 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:56:11 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/20 13:04:06 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@
 # include "macro.h"
 # include "lib.h"
 
-typedef struct		s_comp
+typedef struct		s_node
 {
 	int				value;
-	struct s_comp	*next;
-	struct s_comp	*before;
-}					t_comp;
+	struct s_node	*next;
+	struct s_node	*before;
+}					t_node;
 
 
 typedef struct		s_stack
 {
-	t_comp			*comp;
+	t_node			*node;
 	int				size;
 }					t_stack;
 
-t_comp				*init_comp();
+t_node				*init_node();
 t_stack				*init_stack();
 int					empty(t_stack *stack);
-t_comp				*pop(t_stack *stack);
+t_node				*pop(t_stack *stack);
 int					top(t_stack *stack);
 int					push(t_stack *stack, int value);
 int					size(t_stack *stack);
