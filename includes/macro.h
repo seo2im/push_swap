@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 11:05:45 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:19:56 by seolim           ###   ########.fr       */
+/*   Created: 2021/03/20 11:41:29 by seolim            #+#    #+#             */
+/*   Updated: 2021/03/20 11:58:39 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#ifndef MACRO_H
+# define MACRO_H
+# define TRUE 1
+# define FALSE 0
+# define SUCCESS 1
+# define FAIL 0
 
-int main(int argc, char *argv[])
-{
-
-}
+#endif
