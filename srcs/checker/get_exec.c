@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 12:16:00 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:47:57 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:50:07 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,6 @@ int			get_exec(char **execs)
 		{
 			if (!copy_module(execs, exec, &i, &j))
 				return (0);
-			/*
-			exec[++i] = 0;
-			if (!is_exec(exec))
-			{
-				execs[++j] = 0;
-				return (0);
-			}
-			if (!(execs[++j] = ft_strdup(exec)))
-			{
-				execs[++j] = 0;
-				return (0);
-			}
-			*/
 			exec[0] = 0;
 			i = -1;
 			continue;

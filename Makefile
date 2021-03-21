@@ -1,5 +1,7 @@
 NAME = TEST
 SRC = ./main.c \
+		./srcs/push_swap/push_swap_main.c \
+		./srcs/push_swap/simple.c \
 		./srcs/checker/checker_main.c \
 		./srcs/checker/checker.c \
 		./srcs/checker/get_exec.c \

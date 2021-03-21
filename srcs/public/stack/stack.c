@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:53 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:01:48 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 16:39:23 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_node				*pop(t_stack *stack)
 
 int					top(t_stack *stack)
 {
+	if (!stack->node)
+		return (-2147483648);
 	return (stack->node->value);
 }
 
@@ -65,6 +67,14 @@ int					push(t_stack *stack, int value)
 	}
 	stack->size++;
 	return (SUCCESS);
+}
+
+void				push_node(t_stack *stack, t_node *node)
+{
+	node->before = NULL;
+	node->next = stack->node;
+	stack->node = node;
+	stack->size++;
 }
 
 int					size(t_stack *stack)

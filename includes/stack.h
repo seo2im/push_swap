@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:34:17 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 14:48:13 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 16:21:32 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int					empty(t_stack *stack);
 t_node				*pop(t_stack *stack);
 int					top(t_stack *stack);
 int					push(t_stack *stack, int value);
+void				push_node(t_stack *stack, t_node *node);
 int					size(t_stack *stack);
 void				free_stack(t_stack *stack);
 
