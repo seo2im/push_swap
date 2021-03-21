@@ -86,3 +86,20 @@ checker는 argument를 통해 stack을 구성하고 stdin을 통해 exec_command
 2. stdin을 받아 exec을 수행
     - stdin에 정상적인 명령어가 없는 경우 error
     - 명령어 포맷이 정상적이지 않은 경우(\n으로 이뤄지지 않음) error
+
+### Push_swap
+
+이를 해결하기 위한 알고리즘을 구현한다. 일단 가장 간단히 생각할 수 있는 알고리즘은 a에 가장 작은 요소를 위로 올리고 b로 넘기는 동작을 반복한 후 다시 a로 넘기는 과정을 행하면 된다.
+
+```python
+def simple (a, b) :
+    while a.size != 0 :
+        while (all number check) in a :
+            if min > a.top()
+                ra()
+        pb()
+    while b.size != 0 :
+        pa()
+```
+
+위 방법은 절대적으로 성공하지만 전혀 최적화되어있지 않다.
