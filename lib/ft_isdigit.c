@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 14:17:09 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:30:58 by seolim           ###   ########.fr       */
+/*   Created: 2021/03/21 15:25:42 by seolim            #+#    #+#             */
+/*   Updated: 2021/03/21 15:26:39 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
-# include "lib.h"
-# include "stack.h"
-# include "exec.h"
+#include "lib.h"
 
-static char	*g_exec[11] = {
-	"sa", "sb", "ss", "pa", "pb",
-	"ra", "rb", "rr", "rra", "rrb", "rrr"
-};
-int			get_exec(char **execs);
-int			run(t_stack *a, t_stack *b, char **execs);
-int			checker(t_stack *a, t_stack *b);
-int			checker_main(int argc, char *argv[]);
-int			argv_check(int argc, char *argv[]);
-
-#endif
+int ft_isdigit(int c)
+{
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
+}

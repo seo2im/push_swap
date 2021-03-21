@@ -3,6 +3,7 @@ SRC = ./main.c \
 		./srcs/checker/checker_main.c \
 		./srcs/checker/checker.c \
 		./srcs/checker/get_exec.c \
+		./srcs/checker/argv_check.c \
 		./srcs/checker/run.c \
 		./srcs/public/stack_main.c \
 		./srcs/public/stack/stack.c \

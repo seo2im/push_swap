@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   argv_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 14:17:09 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:30:58 by seolim           ###   ########.fr       */
+/*   Created: 2021/03/21 15:19:47 by seolim            #+#    #+#             */
+/*   Updated: 2021/03/21 15:36:27 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
-# include "lib.h"
-# include "stack.h"
-# include "exec.h"
+#include "checker.h"
 
-static char	*g_exec[11] = {
-	"sa", "sb", "ss", "pa", "pb",
-	"ra", "rb", "rr", "rra", "rrb", "rrr"
-};
-int			get_exec(char **execs);
-int			run(t_stack *a, t_stack *b, char **execs);
-int			checker(t_stack *a, t_stack *b);
-int			checker_main(int argc, char *argv[]);
-int			argv_check(int argc, char *argv[]);
-
-#endif
+int argv_check(int argc, char *argv[])
+{
+	int	i;
+	int	j;
+	if (argc == 0)
+		return (ft_write_n("Error"));
+	i = 0;
+	while (++i < argc)
+	{
+		int	j = -1;
+		while (argv[i][++j])
+		{
+			if (!ft_isdigit(argv[i][j]))
+				return (ft_write_n("Error"));
+		}
+	}
+	return (0);
+}

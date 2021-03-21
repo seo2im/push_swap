@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:35:25 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:08:12 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:27:30 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ char			*ft_itoa(int n);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strdup(const char *str);
 void			ft_double_free(char **execs);
+int				ft_isdigit(int c);
 
 #endif

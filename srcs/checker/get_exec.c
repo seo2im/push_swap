@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 12:16:00 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 15:07:10 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:47:57 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,29 @@ static int	is_exec(char *str)
 	return (0);
 }
 
+static int	copy_module(char **execs, char *exec, int *i_addr, int *j_addr)
+{
+	int i;
+	int	j;
+
+	i = *i_addr;
+	j = *j_addr;
+	exec[++i] = 0;
+	if (!is_exec(exec))
+	{
+		execs[++j] = 0;
+		return (0);
+	}
+	if (!(execs[++j] = ft_strdup(exec)))
+	{
+		execs[++j] = 0;
+		return (0);
+	}
+	*i_addr = i;
+	*j_addr = j;
+	return (1);
+}
+
 int			get_exec(char **execs)
 {
 	char	buf;
@@ -38,16 +61,29 @@ int			get_exec(char **execs)
 	{
 		if (buf == '\n')
 		{
+			if (!copy_module(execs, exec, &i, &j))
+				return (0);
+			/*
 			exec[++i] = 0;
-			i = -1;
 			if (!is_exec(exec))
+			{
+				execs[++j] = 0;
 				return (0);
+			}
 			if (!(execs[++j] = ft_strdup(exec)))
+			{
+				execs[++j] = 0;
 				return (0);
+			}
+			*/
+			exec[0] = 0;
+			i = -1;
 			continue;
 		}
 		exec[++i] = buf;
 	}
 	execs[++j] = 0;
+	if (exec[0] != 0)
+		return (0);
 	return (1);
 }
