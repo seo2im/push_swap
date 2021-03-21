@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:53 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 13:04:33 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:01:48 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,16 @@ void				print_stack(t_stack *stack)
 
 	node = stack->node;
 	i = stack->size;
+	printf("(top) ");
 	while (--i >= 0)
 	{
-		printf("%d\n", node->value);
+		printf("%d ", node->value);
 		node = node->next;
 	}
+	printf(" (bottom) \n");
 }
 
-t_stack				*init_stack(char *argv[])
+t_stack				*init_stack(int argc, char *argv[])
 {
 	t_stack	*stack;
 
@@ -94,12 +96,12 @@ t_stack				*init_stack(char *argv[])
 		return (NULL);
 	stack->node = NULL;
 	stack->size = 0;
-	if (!argv)
+	if (argc == 0)
 		return (stack);
-	while (*argv)
+	while (argc != 1)
 	{
-		push(stack, ft_atoi(*argv));
-		argv++;
+		push(stack, ft_atoi(argv[argc - 1]));
+		argc--;
 	}
 	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 12:27:10 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 12:50:26 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:07:31 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	s(t_stack *stack);
 void	p(t_stack *give, t_stack *get);
 void	r(t_stack *stack);
 void	rr(t_stack *stack);
+int		stack_main(int argc, char *argv[]);
 
 #endif

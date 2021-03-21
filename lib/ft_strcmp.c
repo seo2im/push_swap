@@ -6,11 +6,11 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 12:17:29 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/04 12:24:08 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 14:41:16 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "lib.h"
 
 int		ft_strcmp(char *s1, char *s2)
 {

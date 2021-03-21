@@ -6,11 +6,11 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:52:34 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/04 11:09:45 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 14:41:01 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "lib.h"
 
 int		ft_write_n(char *str)
 {

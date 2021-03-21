@@ -72,3 +72,17 @@ get_stack.push(n);
 
 <span style="color:red">**ra / rb / rra / rrb**</span>
 위 두 규격은 속도상 pop / push를 이용하는 것 보다 rotate함수를 따로 구현해 두는것이 속도향상에 큰 도움이 된다. 따라서 현 구현은 push / pop을 이용하지 않고 연결 리스트의 회전을 구현해두었다. 따라서 차후 변경을 예정하고 있다.
+
+### Checker
+
+checker는 argument를 통해 stack을 구성하고 stdin을 통해 exec_command를 받아 실행시킨 후 해당 stack이 정렬되었는지 확인한다.
+따라서 최소 3개의 logic이 요구된다.
+
+1. argument를 받아 최초의 stack을 구성
+    - argument가 숫자가 아닌 경우 error
+    - argument가 없는 경우 error
+    - argument가 int를 넘으면 error
+    - argument가 중복되면 error
+2. stdin을 받아 exec을 수행
+    - stdin에 정상적인 명령어가 없는 경우 error
+    - 명령어 포맷이 정상적이지 않은 경우(\n으로 이뤄지지 않음) error

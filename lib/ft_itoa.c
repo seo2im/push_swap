@@ -6,11 +6,11 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:47:52 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/04 10:48:15 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 14:41:20 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "lib.h"
 
 static int	word_len(int n, int sign)
 {

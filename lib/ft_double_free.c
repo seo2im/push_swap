@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_double_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 12:30:21 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 14:41:09 by seolim           ###   ########.fr       */
+/*   Created: 2021/03/21 15:04:54 by seolim            #+#    #+#             */
+/*   Updated: 2021/03/21 15:08:20 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-int	ft_strlen(const char *str)
+void ft_double_free(char **execs)
 {
 	int i;
 
-	i = 0;
-	while (*(str + i))
-		i++;
-	return (i);
+	i = -1;
+	while (execs[++i])
+		free(execs[i]);
+	free(execs);
 }

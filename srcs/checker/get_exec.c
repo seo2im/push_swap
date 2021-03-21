@@ -6,11 +6,11 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 12:16:00 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/04 13:16:56 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 15:07:10 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "checker.h"
 
 static int	is_exec(char *str)
 {

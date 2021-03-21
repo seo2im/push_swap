@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:34:17 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/20 13:04:06 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 14:48:13 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct		s_stack
 }					t_stack;
 
 t_node				*init_node();
-t_stack				*init_stack();
+t_stack				*init_stack(int argc, char *argv[]);
 int					empty(t_stack *stack);
 t_node				*pop(t_stack *stack);
 int					top(t_stack *stack);

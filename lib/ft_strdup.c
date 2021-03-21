@@ -6,11 +6,11 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 12:30:12 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/04 12:30:36 by seolim           ###   ########.fr       */
+/*   Updated: 2021/03/21 14:41:12 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "lib.h"
 
 char		*ft_strdup(const char *str)
 {

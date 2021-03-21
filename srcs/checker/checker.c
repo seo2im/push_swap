@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 12:30:21 by seolim            #+#    #+#             */
-/*   Updated: 2021/03/21 14:41:09 by seolim           ###   ########.fr       */
+/*   Created: 2021/03/04 12:12:26 by seolim            #+#    #+#             */
+/*   Updated: 2021/03/21 14:39:09 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib.h"
+#include "checker.h"
 
-int	ft_strlen(const char *str)
+int		checker(t_stack *a, t_stack *b)
 {
-	int i;
+	int value;
 
-	i = 0;
-	while (*(str + i))
-		i++;
-	return (i);
+	if (b->size != 0)
+		return (FAIL);
+	value = top(a);
+	free(pop(a));
+	while (a->size != 0)
+	{
+		if (value > top(a))
+			return (FAIL);
+		value = top(a);
+		free(pop(a));
+	}
+	return (SUCCESS);
 }

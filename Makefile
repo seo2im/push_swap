@@ -1,7 +1,12 @@
-NAME = test
+NAME = TEST
 SRC = ./main.c \
-		./public/stack/stack.c \
-		./public/exec/exec.c \
+		./srcs/checker/checker_main.c \
+		./srcs/checker/checker.c \
+		./srcs/checker/get_exec.c \
+		./srcs/checker/run.c \
+		./srcs/public/stack_main.c \
+		./srcs/public/stack/stack.c \
+		./srcs/public/exec/exec.c \
 		./lib/*.c
 HEADER = -I ./includes/
 CC = gcc
