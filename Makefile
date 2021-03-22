@@ -2,6 +2,9 @@ NAME = TEST
 SRC = ./main.c \
 		./srcs/push_swap/push_swap_main.c \
 		./srcs/push_swap/simple.c \
+		./srcs/push_swap/specific_num/two.c \
+		./srcs/push_swap/specific_num/three.c \
+		./srcs/push_swap/ft_command.c \
 		./srcs/checker/checker_main.c \
 		./srcs/checker/checker.c \
 		./srcs/checker/get_exec.c \
